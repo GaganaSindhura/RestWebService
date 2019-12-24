@@ -20,22 +20,22 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 	
-	@PostMapping("/Student")
+	@PostMapping("/Students")
 	public Response addStudent(@RequestBody Student student) {
 		return studentService.addStudent(student);
 	}
 	
-	@GetMapping("/Student")
+	@GetMapping("/Students")
 	public List<Student> getAllStudent(){
 		return studentService.getAllStudent();
 	}
 
-	@GetMapping("/Student/{id}")
+	@GetMapping("/Students/{id}")
 	public Student getStudentById(@PathVariable int id) {
 		return studentService.getStudentById(id);
 	}
 	
-	@PutMapping("/Student/{id}")
+	@PutMapping("/Students/{id}")
 	public Response updateSudent(@PathVariable int id, @RequestBody Student student) {
 		return studentService.updateStudent(id, student);
 	}
