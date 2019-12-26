@@ -50,4 +50,14 @@ public class StudentService {
 		response.setMessage("Successfully updated Student object by ID : "+s.getStudentId());
 		return response;
 	}
+	
+	public Response deleteStudentById(int id) {
+		// TODO Auto-generated method stub
+		studentInterface.findById(id)
+				.orElseThrow(() -> new DataNotFoundException("Student by ID " + id + " not present"));
+		studentInterface.deleteById(id);
+		response.setMessage("Student delete successful for ID : "+id);
+		response.setStatusCode(HttpStatus.OK.value());
+		return response;
+	}
 }
